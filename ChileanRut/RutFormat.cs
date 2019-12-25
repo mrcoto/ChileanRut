@@ -1,4 +1,4 @@
-namespace ChileanRut
+namespace MrCoto.ChileanRut
 {
     public enum RutFormat
     {
