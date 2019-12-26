@@ -6,10 +6,25 @@
     <RootNamespace>MrCoto.ChileanRut</RootNamespace>
     <PackageId>ChileanRut</PackageId>
     <Version>1.0.0</Version>
-    <Authors>José Espinoza</Authors>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <PackageReleaseNotes>V1.0.0</PackageReleaseNotes>
+    <Authors>José Manuel Espinoza Salas</Authors>
+    <PackageProjectUrl>https://github.com/mrcoto/ChileanRut</PackageProjectUrl>
     <Company>Innlab</Company>
+    <Copyright>Copyright José Manuel Espinoza Salas, Chile</Copyright>
+    <Description>Librería para trabajas con Rut de Chile.</Description>
+    <RepositoryType>Library</RepositoryType>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
 
 </Project>
