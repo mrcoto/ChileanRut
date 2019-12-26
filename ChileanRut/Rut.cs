@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System;
-using System.Diagnostics.Contracts;
 using System.Text.RegularExpressions;
 
 namespace MrCoto.ChileanRut
@@ -13,7 +12,7 @@ namespace MrCoto.ChileanRut
         private const int ELEVEN = 11;
         private const int TEN = 10;
         private const string ZERO = "0";
-        private const string K = "K";
+        private const string K = "k";
 
         private const int MIN_RANGE = 4_000_000;
         private const int MAX_RANGE = 80_000_000;
@@ -23,8 +22,8 @@ namespace MrCoto.ChileanRut
 
         public Rut(string number, string dv)
         {   
-            Contract.Requires(Regex.Match(number, RGX_NUMBER).Success, "Formato Inválido");
-            Contract.Requires(Regex.Match(dv, RGX_DV).Success, "Digito Verificador Inválido");
+            if (!Regex.Match(number, RGX_NUMBER).Success) throw new ArgumentException("Formato Inválido");
+            if (!Regex.Match(dv, RGX_DV).Success) throw new ArgumentException("Digito Verificador Inválido");
             _number = int.Parse(number.Replace(".", ""));
             _dv = dv.ToLower();
         }
