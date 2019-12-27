@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using MrCoto.ChileanRut.Exceptions;
 
 namespace MrCoto.ChileanRut
 {
@@ -29,6 +30,26 @@ namespace MrCoto.ChileanRut
         /// </summary>
         /// <returns>Verdadero si el RUT es válido.</returns>
         public bool IsValid() => CalcDv(_number) == _dv;
+
+        /// <summary>
+        /// Lanza la excepción si el Rut es inválido (dv difiere del esperado)
+        /// </summary>
+        /// <exception>Lanzado cuando el formato es Inválido</exception>
+        /// <param name="errorMessage">Mensaje de error</param>
+        public void Check<T>(string errorMessage = CHECK_ERROR_MESSAGE) where T : Exception
+        {
+            if (!IsValid()) throw Activator.CreateInstance(typeof(T), errorMessage) as T;
+        }
+
+        /// <summary>
+        /// Lanza la excepción si el Rut es inválido (dv difiere del esperado)
+        /// </summary>
+        /// <exception cref="MrCoto.ChileanRut.Exceptions.InvalidRutFormatException">Lanzado cuando el formato es Inválido</exception>
+        /// <param name="errorMessage">Mensaje de error</param>
+        public void Check(string errorMessage = CHECK_ERROR_MESSAGE)
+        {
+            if (!IsValid()) throw new InvalidRutFormatException(errorMessage);
+        }
         
         /// <summary>
         /// Formatea el RUT.

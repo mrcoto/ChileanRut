@@ -11,6 +11,7 @@ de identificación utilizado en Chile (RUT).
 * [Uso](#uso)
     - [Instanciar RUT](#instanciar-rut)
     - [Validar RUT](#validar-rut)
+    - [Chequear RUT](#chequear-rut)
     - [Calcular DV](#calcular-dv)
     - [Formatear RUT](#formatear-rut)
     - [Destructuración](#destructuración)
@@ -83,6 +84,43 @@ namespace MyProject
             Console.WriteLine(rut1.IsValid()); // false
             Console.WriteLine(rut2.IsValid()); // true
         }
+    }
+}
+~~~
+
+### Chequear RUT
+
+Se utiliza el método `Check(string message)` o `Check<T>(string message)` a una instancia ya creada (`T` debe heredar de `System.Exception`).
+Este método, en vez de retornar un booleano, lanzara una excepción si el rut no es válido. 
+
+El método por defecto lanza la excepción `MrCoto.ChileanRut.Exceptions.InvalidRutFormatException`.
+
+~~~csharp
+using System;
+
+namespace MrCoto.ChileanRut
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var rut = Rut.Parse("123-k");
+            printError(() => rut.Check()); // InvalidRutFormatException: El Formato del Rut es inválido
+            printError(() => rut.Check("Es inválido!")); // InvalidRutFormatException: Es inválido!
+            printError(() => rut.Check<ArgumentException>()); // ArgumentException: El Formato del Rut es inválido
+            printError(() => rut.Check<ArgumentException>("Argumento Inválido!")); // ArgumentException: Argumento Inválido!
+            printError(() => rut.Check<Exception>()); // Exception: El Formato del Rut es inválido
+        }
+
+        static void printError(Action action)
+        {
+            try {
+                action.Invoke();
+            } catch(Exception ex) {
+                Console.WriteLine($"{ex.GetType().Name}: {ex.Message}");
+            }
+        }
+
     }
 }
 ~~~

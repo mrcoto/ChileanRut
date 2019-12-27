@@ -15,5 +15,7 @@ namespace MrCoto.ChileanRut
 
         private const int MIN_RANGE = 4_000_000;
         private const int MAX_RANGE = 80_000_000;
+
+        private const string CHECK_ERROR_MESSAGE = "El Formato del Rut es inválido";
     }
 }

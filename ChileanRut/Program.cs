@@ -35,6 +35,20 @@ namespace MrCoto.ChileanRut
 
             var uniqueRandomList = Rut.Uniques(n: 5);
             randomList.ForEach(rut => Console.WriteLine($"Random Rut From Unique Random List = {rut}"));
+
+            printCheckError(() => Rut.Parse("123-k").Check());
+            printCheckError(() => Rut.Parse("123-k").Check("My custom Message"));
+            printCheckError(() => Rut.Parse("123-k").Check<ArgumentException>());
         }
+
+        static void printCheckError(Action action)
+        {
+            try {
+                action.Invoke();
+            } catch(Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }

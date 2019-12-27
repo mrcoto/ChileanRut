@@ -1,5 +1,6 @@
 using System;
 using MrCoto.ChileanRut;
+using MrCoto.ChileanRut.Exceptions;
 using Xunit;
 
 namespace MrCoto.ChileanRutTest
@@ -70,6 +71,24 @@ namespace MrCoto.ChileanRutTest
         {
             var rut = new Rut(number, dv);
             Assert.False(rut.IsValid());
+        }
+
+        [Fact]
+        public void Test_Should_Throw_InvalidRutFormatException_When_Rut_Is_Invalid()
+        {
+            Assert.Throws<InvalidRutFormatException>(() => Rut.Parse("123-k").Check());
+        }
+
+        [Fact]
+        public void Test_Should_Throw_Exception_When_Rut_Is_Invalid()
+        {
+            Assert.Throws<Exception>(() => Rut.Parse("123-k").Check<Exception>());
+        }
+
+        [Fact]
+        public void Test_Should_Throw_ArgumentException_When_Rut_Is_Invalid()
+        {
+            Assert.Throws<ArgumentException>(() => Rut.Parse("123-k").Check<ArgumentException>("my message"));
         }
 
         [Theory]
