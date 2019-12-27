@@ -23,12 +23,12 @@ de identificación utilizado en Chile (RUT).
 
 ### Versión
 
-La versión corresponde a: `'ChileanRut:1.0.1'`.
+La versión corresponde a: `'ChileanRut:1.0.2'`.
 
 ### Nuget
 
 ~~~bash
-dotnet add package ChileanRut --version 1.0.1
+dotnet add package ChileanRut --version 1.0.2
 ~~~ 
 
 ## Uso
