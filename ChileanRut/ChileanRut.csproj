@@ -5,9 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>MrCoto.ChileanRut</RootNamespace>
     <PackageId>ChileanRut</PackageId>
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <PackageReleaseNotes>V1.0.2</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <PackageReleaseNotes>V1.1.0</PackageReleaseNotes>
     <Authors>José Manuel Espinoza Salas</Authors>
     <PackageProjectUrl>https://github.com/mrcoto/ChileanRut</PackageProjectUrl>
     <Company>Innlab</Company>
@@ -15,6 +15,7 @@
     <Description>Librería para trabajar con un Rut de Chile.</Description>
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIconUrl>https://raw.githubusercontent.com/mrcoto/ChileanRut/master/icon.png</PackageIconUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
