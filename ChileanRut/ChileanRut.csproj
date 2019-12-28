@@ -15,7 +15,7 @@
     <Description>Librería para trabajar con un Rut de Chile.</Description>
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageIconUrl>https://raw.githubusercontent.com/mrcoto/ChileanRut/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/mrcoto/ChileanRut/master/rut_icon.jpg</PackageIconUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
