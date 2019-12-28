@@ -16,6 +16,7 @@
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIconUrl>https://raw.githubusercontent.com/mrcoto/ChileanRut/master/rut_icon.jpg</PackageIconUrl>
+    <PackageIcon>rut_icon.jpg</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -25,6 +26,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include=".\..\rut_icon.jpg" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 
