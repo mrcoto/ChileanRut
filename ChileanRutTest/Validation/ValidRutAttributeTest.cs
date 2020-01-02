@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ChileanRut.Validation;
+using MrCoto.ChileanRut.Validation;
 using MrCoto.ChileanRut;
 using Xunit;
 

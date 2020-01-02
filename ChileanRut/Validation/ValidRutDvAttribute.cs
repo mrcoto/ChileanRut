@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace ChileanRut.Validation
+namespace MrCoto.ChileanRut.Validation
 {
     /// <summary>
     /// Valida un Rut dada su parte numérica y dígito verificador, valida que el dv calculado de la 

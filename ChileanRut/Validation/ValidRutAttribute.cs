@@ -1,8 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using MrCoto.ChileanRut;
 
-namespace ChileanRut.Validation
+namespace MrCoto.ChileanRut.Validation
 {
     /// <summary>
     /// Valida si un atributo de tipo <c>string</c> o <c>MrCoto.ChileanRut.Rut</c> es un Rut Válido.
