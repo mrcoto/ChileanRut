@@ -15,6 +15,14 @@ namespace MrCoto.ChileanRut.Validation
         public int MinLength { get; set; } = 0;
 
         /// <summary>
+        /// Formato de entrada del Rut.
+        /// 
+        /// Indica si debe ser 12.345.678-X, 12345678-X o 12345678X.
+        /// </summary>
+        /// <value>Formato que debe tener el Rut</value>
+        public RutFormat RutFormat { get; set; } = RutFormat.FULL | RutFormat.ONLY_DASH | RutFormat.ESCAPED;
+
+        /// <summary>
         /// Constructor principal.
         /// </summary>
         public ValidRutAttribute()
@@ -34,10 +42,15 @@ namespace MrCoto.ChileanRut.Validation
             return false;
         }
 
-        private bool ValidateAsRutString(string rut)
+        private bool ValidateAsRutString(string rutStr)
         {
             try {
-                return ValidateAsRutObject(Rut.Parse(rut));
+                var rut = Rut.Parse(rutStr);
+                if (RutFormat != (RutFormat.FULL | RutFormat.ONLY_DASH | RutFormat.ESCAPED))
+                {
+                    return ValidateAsRutObject(rut) && rut.Format(RutFormat) == rutStr;
+                }
+                return ValidateAsRutObject(rut);
             } catch (ArgumentException) {
                 return false;
             }
