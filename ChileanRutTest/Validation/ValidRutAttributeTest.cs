@@ -4,7 +4,7 @@ using MrCoto.ChileanRut.Validation;
 using MrCoto.ChileanRut;
 using Xunit;
 
-namespace ChileanRutTest.Validation
+namespace MrCoto.ChileanRutTest.Validation
 {
     public class ValidRutAttributeTest
     {
@@ -71,6 +71,12 @@ namespace ChileanRutTest.Validation
         [InlineData("1-9")] // MinLength is 2
         [InlineData("123-5")]
         [InlineData("hola-mundo")]
+        [InlineData("a")]
+        [InlineData(" a ")]
+        [InlineData("a ")]
+        [InlineData(" a")]
+        [InlineData("u")]
+        [InlineData("-K")]
         [InlineData("23971807-k")]
         [InlineData("23971807-K")]
         public void Test_Should_Invalidate_Rut_String(string rut)

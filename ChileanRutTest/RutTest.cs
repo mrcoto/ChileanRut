@@ -100,6 +100,9 @@ namespace MrCoto.ChileanRutTest
         [InlineData("123.456.78k")]
         [InlineData("12,345,678k")]
         [InlineData("0k")]
+        [InlineData("a")]
+        [InlineData("t")]
+        [InlineData("W")]
         [InlineData("123456789k")]
         [InlineData("12-A")]
         public void Test_Should_Throw_ArgumentException_On_Invalid_Rut(string rutValue)

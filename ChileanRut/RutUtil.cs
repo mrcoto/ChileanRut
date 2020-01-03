@@ -23,10 +23,10 @@ namespace MrCoto.ChileanRut
         /// <returns>Instancia de un Rut</returns>
         public static Rut Parse(string rut)
         {
-            if (string.IsNullOrWhiteSpace(rut) || rut == ZERO) return new Rut("", "");
+            if (string.IsNullOrWhiteSpace(rut) || rut.Length <= 1) return new Rut("", "");
             var dv = !string.IsNullOrWhiteSpace(rut) ? rut[^1].ToString() : "";
-            var sub = rut.Substring(0, rut.Length - 1);
-            var number = sub[^1] == '-' ? sub.Substring(0, sub.Length - 1) : sub;
+            var sub = rut[0..^1];
+            var number = sub[^1] == '-' ? sub[0..^1] : sub;
             return new Rut(number, dv);
         }
 

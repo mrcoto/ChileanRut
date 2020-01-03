@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using MrCoto.ChileanRut.Validation;
 using Xunit;
 
-namespace ChileanRutTest.Validation
+namespace MrCoto.ChileanRutTest.Validation
 {
     public class ValidRutDvAttributeTest
     {
