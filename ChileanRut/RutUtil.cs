@@ -24,9 +24,9 @@ namespace MrCoto.ChileanRut
         public static Rut Parse(string rut)
         {
             if (string.IsNullOrWhiteSpace(rut) || rut.Length <= 1) return new Rut("", "");
-            var dv = !string.IsNullOrWhiteSpace(rut) ? rut[^1].ToString() : "";
-            var sub = rut[0..^1];
-            var number = sub[^1] == '-' ? sub[0..^1] : sub;
+            var dv = !string.IsNullOrWhiteSpace(rut) ? rut.Substring(rut.Length - 1).ToString() : "";
+            var sub = rut.Substring(0, rut.Length - 1);
+            var number = sub.Substring(sub.Length - 1) == "-" ? sub.Substring(0, sub.Length - 1) : sub;
             return new Rut(number, dv);
         }
 
@@ -55,12 +55,12 @@ namespace MrCoto.ChileanRut
             return DvFromResult(ELEVEN - (sum % ELEVEN));
         }
 
-        private static string DvFromResult(int result) => result switch
+        private static string DvFromResult(int result)
         {
-            ELEVEN => ZERO,
-            TEN => K,
-            _ => result.ToString()
-        };
+            if (result == ELEVEN) return ZERO;
+            else if (result == TEN) return K;
+            return result.ToString();
+        }
 
         /// <summary>
         /// Genera un Rut de forma aleatoria.

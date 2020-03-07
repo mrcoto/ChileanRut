@@ -60,13 +60,12 @@ namespace MrCoto.ChileanRut
         /// </summary>
         /// <param name="format">Formato del RUT</param>
         /// <returns>String del Rut formateado.</returns>
-        public string Format(RutFormat format = RutFormat.FULL) => format switch
+        public string Format(RutFormat format = RutFormat.FULL)
         {
-            RutFormat.FULL => $"{_number:n0}-{_dv}".Replace(",", "."),
-            RutFormat.ONLY_DASH => $"{_number}-{_dv}",
-            RutFormat.ESCAPED => $"{_number}{_dv}",
-            _ => this.Format() 
-        };
+            if (format == RutFormat.ONLY_DASH) return $"{_number}-{_dv}";
+            else if (format == RutFormat.ESCAPED) return $"{_number}{_dv}";
+            return $"{_number:n0}-{_dv}".Replace(",", ".");
+        }
 
         /// <summary>
         /// Compara esta instancia de Rut con otra,
@@ -80,8 +79,7 @@ namespace MrCoto.ChileanRut
         /// </summary>
         /// <param name="obj">Otra Instancia (o null).</param>
         /// <returns>Verdadero si son un Rut es igual a otro (estructuralmente).</returns>
-        #nullable enable
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             if (obj == null || !(obj is Rut))
             {
@@ -90,7 +88,6 @@ namespace MrCoto.ChileanRut
             var other = (Rut) obj;
             return other._number == _number && other._dv == _dv;
         }
-        #nullable disable
 
         /// <summary>
         /// Hash Code.
