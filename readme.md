@@ -27,13 +27,15 @@ de identificación utilizado en Chile (RUT).
 
 ### Versión
 
-La versión corresponde a: `'ChileanRut:1.2.1'`.
+La versión corresponde a: `'ChileanRut:1.2.2'`.
 
 ### Nuget
 
 ~~~bash
-dotnet add package ChileanRut --version 1.2.1
+dotnet add package ChileanRut --version 1.2.2
 ~~~ 
+
+**Nota: ** Desde la versión 1.2.2, soporta .Net Core 1.0 >=
 
 ## Uso
 
