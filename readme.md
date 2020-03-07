@@ -35,7 +35,7 @@ La versión corresponde a: `'ChileanRut:1.2.2'`.
 dotnet add package ChileanRut --version 1.2.2
 ~~~ 
 
-**Nota: ** Desde la versión 1.2.2, soporta .Net Core 1.0 >=
+**Nota:** Desde la versión 1.2.2, soporta .Net Core 1.0 >=
 
 ## Uso
 
