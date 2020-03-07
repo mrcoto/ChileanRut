@@ -45,7 +45,8 @@ namespace MrCoto.ChileanRut
         public static string CalcDv(int number)
         {
             int[] series = {2, 3, 4, 5, 6, 7};
-            var (sum, index) = (0, 0);
+            var sum = 0;
+            var index = 0;
             while (number > 0)
             {
                 sum += series[index] * (number % TEN);
